@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones de Streaming con Sombra</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFla9_fvyEem5y0ezmSbiZRdZiFboD8lMLEg&s');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .contenedor-botones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .boton-imagen {
+            background: white;
+            border: none;
+            padding: 15px;
+            margin: 15px;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 180px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .boton-imagen:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .boton-imagen img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Estilo especial para el botón negro */
+        .boton-negro {
+            background-color: #000000;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .boton-negro:hover {
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Estilos para la ventana emergente */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: 2% auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            text-shadow: 0 0 5px black;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-botones">
+        <button class="boton-imagen" onclick="redirigir('https://www.viki.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rakuten_Viki_Logo_2019.svg/1200px-Rakuten_Viki_Logo_2019.svg.png" alt="Viki">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.plex.tv/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Plex_logo_2022.svg/2560px-Plex_logo_2022.svg.png" alt="Plex">
+        </button>
+
+        <button class="boton-imagen" onclick="abrirVix('https://online.forms.app/respuestasdereportesdefa/vix')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/ViX_Logo.svg/2560px-ViX_Logo.svg.png" alt="ViX">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://tv.apple.com/')">
+            <img src="https://download.logo.wine/logo/Apple_TV/Apple_TV-Logo.wine.png" alt="Apple TV">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.doctormovies.com/')">
+            <img src="https://doctor-pandora.odoo.com/web/image/product.template/8/image_1920?unique=889500d" alt="Doctor Pandora">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.paramountplus.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Paramount%2B_logo.png" alt="Paramount+">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.disneyplus.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.max.com/')">
+            <img src="https://logodownload.org/wp-content/uploads/2024/03/max-logo.png" alt="Max">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.primevideo.com/')">
+            <img src="https://w7.pngwing.com/pngs/650/425/png-transparent-amazon-prime-video-hd-logo.png" alt="Amazon Prime Video">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.crunchyroll.com/')">
+            <img src="https://cdn.worldvectorlogo.com/logos/crunchyroll-1.svg" alt="Crunchyroll">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.netflix.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="Netflix">
+        </button>
+
+        <button class="boton-imagen boton-negro" onclick="redirigir('https://www.example.com/')">
+            <img src="https://dhgf5mcbrms62.cloudfront.net/110979006/header-fcHJMd/IVsTzWZ-600x600.webp" alt="Nuevo Servicio">
+        </button>
+    </div>
+
+    <div id="vixModal" class="modal">
+        <span class="close-btn" onclick="cerrarVix()">&times;</span>
+        <div class="modal-content">
+            <iframe id="vixFrame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function redirigir(url) {
+            window.location.href = url;
+        }
+
+        function abrirVix(url) {
+            const modal = document.getElementById('vixModal');
+            const iframe = document.getElementById('vixFrame');
+            iframe.src = url;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarVix() {
+            const modal = document.getElementById('vixModal');
+            const iframe = document.getElementById('vixFrame');
+            modal.style.display = "none";
+            iframe.src = "";
+            document.body.style.overflow = "auto";
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('vixModal');
+            if (event.target == modal) {
+                cerrarVix();
+            }
+        }
+    </script>
+</body>
+</html>
