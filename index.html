@@ -117,32 +117,40 @@
             height: 100%;
             border: none;
         }
+
+        /* Media query para pantallas de hasta 600px de ancho (típicamente teléfonos) */
+        @media (max-width: 600px) {
+            .contenedor-botones {
+                justify-content: space-around; /* Distribuye los botones con espacio alrededor */
+            }
+
+            .boton-imagen {
+                width: calc(50% - 20px); /* Ocupa la mitad del ancho menos el margen */
+                margin: 10px; /* Reduce el margen entre botones */
+            }
+        }
+
+        /* Media query para pantallas un poco más grandes (tabletas pequeñas) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .contenedor-botones {
+                justify-content: space-around; /* Distribuye los botones con espacio alrededor */
+            }
+
+            .boton-imagen {
+                width: calc(33.33% - 20px); /* Ocupa un tercio del ancho menos el margen */
+                margin: 10px; /* Reduce el margen entre botones */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="contenedor-botones">
-        <button class="boton-imagen" onclick="redirigir('https://www.viki.com/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rakuten_Viki_Logo_2019.svg/1200px-Rakuten_Viki_Logo_2019.svg.png" alt="Viki">
+        <button class="boton-imagen" onclick="redirigir('https://www.netflix.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="Netflix">
         </button>
 
-        <button class="boton-imagen" onclick="redirigir('https://www.plex.tv/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Plex_logo_2022.svg/2560px-Plex_logo_2022.svg.png" alt="Plex">
-        </button>
-
-        <button class="boton-imagen" onclick="abrirVix('https://online.forms.app/respuestasdereportesdefa/vix')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/ViX_Logo.svg/2560px-ViX_Logo.svg.png" alt="ViX">
-        </button>
-
-        <button class="boton-imagen" onclick="redirigir('https://tv.apple.com/')">
-            <img src="https://download.logo.wine/logo/Apple_TV/Apple_TV-Logo.wine.png" alt="Apple TV">
-        </button>
-
-        <button class="boton-imagen" onclick="redirigir('https://www.doctormovies.com/')">
-            <img src="https://doctor-pandora.odoo.com/web/image/product.template/8/image_1920?unique=889500d" alt="Doctor Pandora">
-        </button>
-
-        <button class="boton-imagen" onclick="redirigir('https://www.paramountplus.com/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Paramount%2B_logo.png" alt="Paramount+">
+        <button class="boton-imagen" onclick="redirigir('https://www.primevideo.com/')">
+            <img src="https://w7.pngwing.com/pngs/650/425/png-transparent-amazon-prime-video-hd-logo.png" alt="Amazon Prime Video">
         </button>
 
         <button class="boton-imagen" onclick="redirigir('https://www.disneyplus.com/')">
@@ -153,16 +161,32 @@
             <img src="https://logodownload.org/wp-content/uploads/2024/03/max-logo.png" alt="Max">
         </button>
 
-        <button class="boton-imagen" onclick="redirigir('https://www.primevideo.com/')">
-            <img src="https://w7.pngwing.com/pngs/650/425/png-transparent-amazon-prime-video-hd-logo.png" alt="Amazon Prime Video">
-        </button>
-
         <button class="boton-imagen" onclick="redirigir('https://www.crunchyroll.com/')">
             <img src="https://cdn.worldvectorlogo.com/logos/crunchyroll-1.svg" alt="Crunchyroll">
         </button>
 
-        <button class="boton-imagen" onclick="redirigir('https://www.netflix.com/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="Netflix">
+        <button class="boton-imagen" onclick="abrirVix('https://online.forms.app/respuestasdereportesdefa/vix')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/ViX_Logo.svg/2560px-ViX_Logo.svg.png" alt="ViX">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.viki.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rakuten_Viki_Logo_2019.svg/1200px-Rakuten_Viki_Logo_2019.svg.png" alt="Viki">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.doctormovies.com/')">
+            <img src="https://doctor-pandora.odoo.com/web/image/product.template/8/image_1920?unique=889500d" alt="Doctor Pandora">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://tv.apple.com/')">
+            <img src="https://download.logo.wine/logo/Apple_TV/Apple_TV-Logo.wine.png" alt="Apple TV">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.paramountplus.com/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Paramount%2B_logo.png" alt="Paramount+">
+        </button>
+
+        <button class="boton-imagen" onclick="redirigir('https://www.plex.tv/')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Plex_logo_2022.svg/2560px-Plex_logo_2022.svg.png" alt="Plex">
         </button>
 
         <button class="boton-imagen boton-negro" onclick="redirigir('https://www.example.com/')">
